@@ -113,6 +113,8 @@ book-library/
 
 ├── includes/
 
+├── screenshots/
+
 ├── templates/
 
 ├── book-library.php
