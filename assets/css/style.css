@@ -1,0 +1,58 @@
+.book-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.book-container h1 {
+    margin-bottom: 20px;
+}
+
+.book-container p {
+    margin-bottom: 10px;
+}
+
+.books-list {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.book-card h3 {
+    margin-top: 0;
+}
+
+.page-numbers {
+    margin-right: 10px;
+}
+
+.current {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .book-container,
+    .books-list {
+        padding: 15px;
+    }
+}
+
+.book-filter {
+    margin-bottom: 30px;
+}
+
+.book-filter select {
+    padding: 10px;
+    min-width: 200px;
+}
+
+.book-filter button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
