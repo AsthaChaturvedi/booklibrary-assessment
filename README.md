@@ -1,109 +1,125 @@
 # Book Library - WordPress Developer Assessment
 
-## Project Overview
+## Overview
 
-This project is a custom WordPress solution that allows authenticated users to manage and browse a collection of books.
+This project implements a custom WordPress Book Library system with restricted access for authenticated users.
 
-The implementation includes a custom post type, custom fields, access restrictions, custom templates, pagination, and responsive styling.
+Features include:
 
----
-
-## Features
-
-### Custom Post Type
-
-A custom post type called **Books** has been created.
-
-Each book contains:
-
-* Title
-* Author
-* Genre
-* Published Date
-* Description
+* Custom Post Type (Books)
+* Custom Fields (Author, Genre, Published Date, Description)
+* Protected Books Listing Page
+* Protected Single Book Pages
+* Pagination
+* Responsive Front-End Layout
 
 ---
 
-## Access Restriction
+## Setup Instructions
 
-Access is restricted to logged-in users for:
+### 1. Install Plugin
+
+Copy the plugin folder into:
+
+wp-content/plugins/
+
+Activate the plugin from the WordPress Admin Dashboard.
+
+---
+
+### 2. Install Advanced Custom Fields (ACF)
+
+Install and activate the Advanced Custom Fields plugin.
+
+Create the following fields for the **Books** post type:
+
+| Field Label    | Field Type     |
+| -------------- | -------------- |
+| Author         | Text           |
+| Genre          | Select         |
+| Published Date | Date Picker    |
+| Description    | WYSIWYG Editor |
+
+---
+
+### 3. Create Books
+
+Navigate to:
+
+Books → Add New
+
+Add sample book entries and populate the custom fields.
+
+---
+
+### 4. Create Books Listing Page
+
+Create a page named:
+
+Books Listing
+
+Add the shortcode:
+
+[books_list]
+
+Publish the page.
+
+---
+
+## Testing Instructions
+
+### Guest User
+
+Verify that the following pages are protected:
 
 * Books Listing Page
 * Single Book Pages
 
-Unauthenticated users are prompted to log in before accessing protected content.
+Guests should receive a login prompt before accessing protected content.
 
 ---
 
-## Single Book Page
+### Authenticated User
 
-The single book template displays:
+After logging in:
 
-* Book Title
-* Author
-* Genre
-* Published Date
-* Description
+* View the Books Listing Page
+* Open individual Book Pages
+* Navigate through paginated book listings
 
 ---
 
-## Books Listing Page
+## Access Restriction Implementation
 
-Books are displayed using the shortcode:
+Access control is implemented using the WordPress:
 
-`[books_list]`
+* template_redirect hook
+* is_user_logged_in() function
 
-Features include:
+The following content is restricted:
 
-* Linked book title
-* Author
-* Genre
-* Pagination (5 books per page)
+* Books Listing Page
+* Single Book Pages
 
----
-
-## Responsive Design
-
-The pages have been styled using responsive CSS to ensure usability across desktop, tablet, and mobile devices.
+Unauthenticated users are presented with a login prompt before accessing protected content.
 
 ---
 
-## Installation
+## Project Structure
 
-1. Copy the plugin folder into:
+book-library/
 
-   `wp-content/plugins/`
+├── assets/
 
-2. Activate the plugin from the WordPress Admin Dashboard.
+├── includes/
 
-3. Install and activate **Advanced Custom Fields (ACF)**.
+├── templates/
 
-4. Create the following ACF fields for the Books post type:
+├── book-library.php
 
-   * Author (Text)
-   * Genre (Select)
-   * Published Date (Date Picker)
-   * Description (WYSIWYG)
+├── README.md
 
-5. Create a page containing:
-
-   `[books_list]`
-
-6. Add sample book entries.
-
----
-
-## Access Control Implementation
-
-Access restriction is implemented using:
-
-* `template_redirect`
-* `is_user_logged_in()`
-
-Users who are not logged in cannot access:
-
-* Single Book pages
-* Books Listing page
+└── .gitignore
 
 ---
 
@@ -120,4 +136,3 @@ Users who are not logged in cannot access:
 ## Author
 
 Astha Chaturvedi
-# booklibrary-assessment
